@@ -1,1 +1,0 @@
->8004的子项目是springcloud和zookeeper的集成。而8001，8002是eureka的集成

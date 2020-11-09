@@ -1,8 +1,0 @@
-### Send POST request with json body
-POST http://localhost:8004/payment/zk
-Content-Type: application/json
-
-{
-  "id":1,
-  "serial": "测试数据"
-}
