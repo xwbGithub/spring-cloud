@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: dev #namespace下group下dev的文件
+#    active: test
+#    active: info
