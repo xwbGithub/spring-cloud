@@ -339,5 +339,4 @@ db.password=123456
 ![mysql-nacos-dev](mysql-nacos-dev.png)  
 ![create_dev](create_dev.png)  
 查看数据库的信息  
-![mysql-nacos-config](mysql-nacos-config.png)  
-### 二、集群
+![mysql-nacos-config](mysql-nacos-config.png)

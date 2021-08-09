@@ -10,12 +10,15 @@ seata官网：https://seata.io/zh-cn
     + 2、TM(Transaction Manager)-事务管理者  
     定义全局事务的范围：开始全局事务、提交或回滚全局事务  
     + 3、RM(Resource Manager)-资源管理器  
-     管理粉质食物处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚  
+     管理分支事物处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚  
      
+
+![architecture](img/architecture.png)  
+![seata](img/seata.png)  
 ##### 处理流程图  
  ![seataYL](img/seataYL.png)  
  说明：  
- 1、TM向TC申请开启一个全局事务，全局事务创建成功并神成一个全局唯一的XID   
+ 1、TM向TC申请开启一个全局事务，全局事务创建成功并生成一个全局唯一的XID   
  2、XID在微服务传播链路上下文中传播  
  3、RM向TC注册分支事务，将其纳入XID对应全局事务的管辖    
  4、TM向TC发起针对XID的全局提交或回滚决议  
@@ -190,7 +193,7 @@ CREATE TABLE `undo_log` (
 ```
 最终表结构  
 ![table](img/table.png)  
-### 新检测试模块
+### 新建模块
 下订单->减库存->扣余额->该(订单)状态  
 #### 新建订单模块seata-order-service2001
 1、pom.xml(部分省略)  
@@ -451,6 +454,9 @@ TC通知所有RM提交回滚资源，事务二阶段结束**
 二阶段如果顺利提交的话。  
 因为"业务SQL"在一阶段已经提交至数据库，所以Seata框架只需将**一阶段保存的快照数据和行级锁，完成数据清理即可。**
 ![seata-two](img/seata-two.png)  
-
-![architecture](img/architecture.png)  
-![seata](img/seata.png)  
+    + 二阶段失败  
+   二阶段回滚：  
+   二阶段如果是回滚的话，Seata就需要回滚一阶段已经执行的"业务SQL"还原业务数据  
+   回滚方式便是用"before image" 还原业务数据；但在还原前要首先要校验脏写，对比"数据库当前业务数据"和"after image",
+   如果两份数据完全一致就说明没有脏毒，可以还原业务数据，如果不一致就说明有脏写，出现脏写需要转人工处理。  
+![seata-rollback](img/seata-rollback.png)

@@ -1,0 +1,17 @@
+# 8004是zookeeper服务器的支付服务提供者端口号
+server:
+  port: 8004
+spring:
+  application:
+    name: cloud-redis6
+  redis:
+    host: 192.168.68.133
+    port: 6379
+    database: 0
+    timeout: 1800000 #超时毫秒数
+    lettuce:
+      pool:
+        max-active: 20 #连接池最大连接数
+        max-wait: -1 #最大阻塞等待时间
+        max-idle: 5 #最大空闲连接
+        min-idle: 0 #最小空闲连接

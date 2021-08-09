@@ -30,7 +30,7 @@ spring-cloud
 ├── cloudalibaba-provider-payment9002       --  提供者nacos-provider)
 ├── cloudalibaba-provider-payment9003       --  提供者 nacos,sentinel,fallback
 ├── cloudalibaba-provider-payment9004       --  提供者nacos,sentinel,fallback
-├── cloudalibaba-sentinel-service8401       --  nacos sentinel
+├── cloudalibaba-sentinel-service8401       --  nacos sentinel,持久化
 ├── seata-account-service2003               --  (account账户)nacos seata
 ├── seata-order-service2001                 --  (order订单)nacos seata
 ├── seata-storage-service2002               --  (storage库存)nacos seata
@@ -42,8 +42,7 @@ spring-cloud
     是尚硅谷高阶班微服务课程的最新升级版。重点讲解了SpringCloud各种组件停止更新进入维护阶段后，后续技术组件的升级和替换策略及方案选型，
     既有传统Eureka、Ribbon、OpenFeign、Hystrix、Config等技术的升级讲解,又有Consul、Gateway、Bus、Stream、Sleuth、zipkin
     和阿里巴巴最新的Nacos、Sentinel、Seata等最新技术，分享了服务降级、服务熔断、服务限流、hotkey控制、分布式统一配置管理、
-    分布式全局事务控制、RabbitMQ与Stream整合、Nacos和Nginx配置高可用集群等技术，干货满满。学技术何必东奔西走，尚硅谷打包一套带走，
-    祝各位同学粉丝，学习顺利，加油O(∩_∩)O哈哈~。
+    分布式全局事务控制、RabbitMQ与Stream整合、Nacos和Nginx配置高可用集群等技术，干货满满。祝各位同学粉丝，学习顺利，加油O(∩_∩)O哈哈~。
 #### springCloud的升级
 ![cloud升级](desc-file/other/cloud.png)
 #### Maven中的dependencyManagement

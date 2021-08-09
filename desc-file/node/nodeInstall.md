@@ -7,8 +7,6 @@
 node -v #分别查看node
 npm -v #npm的版本号
 ```
-#### 将路径添加到path中********
-> 将node的跟目录添加到path中 E:\software\node\node-v14.15.1-win-x64\
 #### 2、更换安装全局模块node_global和缓存node_cache的路径
 + 第一种方法
 ```properties
@@ -22,6 +20,10 @@ prefix="E:\software\node\node-v14.15.1-win-x64\node_global"
 cache="E:\software\node\node-v14.15.1-win-x64\node_cache"
 registry="http://registry.npm.taobao.org/"
 ```
+##### 将路径添加到path中********
+> 将node的跟目录添加到path中 E:\software\node\node-v14.15.1-win-x64\  
+
+![page](path.png)
 #### 安装依赖
 ```properties
 #安装vue.js

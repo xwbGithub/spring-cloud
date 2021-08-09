@@ -115,7 +115,7 @@ public class SendMessageController {
 注意：<strong>@EnableBinding</strong>和<strong>MessageChannel</strong>的jar包引入，都是cloud.stream.*的依赖
 ### 消息消费者8802,8803
 8002和8003的配置一样，只有端口号不一样，此处指配置8002.8003下同  
-新建模块cloud-stream-rabbitmq-consumer8802
+新建模块cloud-stream-rabbitmq-consumer8802  
 1、pom.xml
 ```xml
  <!-- stream rabbitmq -->
