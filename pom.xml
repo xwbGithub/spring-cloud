@@ -42,6 +42,8 @@
         <module>seata-storage-service2002</module>
         <module>seata-account-service2003</module>
         <module>cloud-redis6</module>
+        <module>cloud-annotation</module>
+        <module>cloud-elasticsearch</module>
     </modules>
     <packaging>pom</packaging>
 

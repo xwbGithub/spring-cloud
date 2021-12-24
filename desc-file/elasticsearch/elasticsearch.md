@@ -8,7 +8,9 @@
 
 版本对应说明[elasticsearch和Kibana版本对应](https://www.elastic.co/cn/support/matrix#matrix_compatibility)
 
-###elasticsearch的安装
+下载页：https://www.elastic.co/cn/downloads/elasticsearch
+# 一、安装
+## 1、elasticsearch的安装(linux)
 ```shell
 mkdir /usr/local/software
 cd /usr/local/software
@@ -75,7 +77,17 @@ sysctl -p
     ./elasticsearch -d
 ```
 ![esInstall](esInstall.png)
-###kibana的安装
+
+## 2、elasticsearch的安装(windows)
+解压文件elasticsearch-7.15.2-windows-x86_64.zip得到elasticsearch-7.15.2目录  
+![结构](jiegou.png)
+
+> 目录介绍  
+    1、
+
+# kinaba的安装
+
+## kibana的安装
 ```shell
 cd /usr/local/software/kibana
 #下载kibana
