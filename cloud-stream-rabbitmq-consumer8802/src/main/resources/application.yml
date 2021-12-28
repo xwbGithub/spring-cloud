@@ -20,7 +20,7 @@ spring:
           destination: studyExchange #表示要使用的Exchange你名称定义
           content-type: application/json #设置消息类型，本次为json，文本则为"text/plain"
           binder: defaultRabbit #设置要绑定的额消息服务的具体设置
-          group: consumerA
+          group: customer8801
 
 #服务注册到eureka地址
 eureka:

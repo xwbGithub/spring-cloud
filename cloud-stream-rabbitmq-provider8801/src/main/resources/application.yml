@@ -2,7 +2,7 @@ server:
   port: 8801
 spring:
   application:
-    name: cloud-stream-provider #服务名
+    name: cloud-stream-provider8801 #服务名
   cloud:
     stream:
       binders: #在此处配合要绑定的rabbitmq的服务信息
@@ -17,10 +17,9 @@ spring:
                 password: guest
       bindings: #服务的整合处理
         output: #这个名字是一个通道的名字
-          destination: studyExchange #表示要使用的Exchange你名称定义
+          destination: customer8801Exchange #表示要使用的Exchange你名称定义
           content-type: application/json #设置消息类型，本次为json，文本则为"text/plain"
           binder: defaultRabbit #设置要绑定的额消息服务的具体设置
-
 #服务注册到eureka地址
 eureka:
   client:

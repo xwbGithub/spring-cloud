@@ -6,6 +6,9 @@ import org.xwb.springcloud.service.IMessageProvider;
 
 import javax.annotation.Resource;
 
+/**
+ * @author Administrator
+ */
 @RestController
 public class SendMessageController {
     @Resource

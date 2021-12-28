@@ -44,6 +44,7 @@
         <module>cloud-redis6</module>
         <module>cloud-annotation</module>
         <module>cloud-elasticsearch</module>
+        <module>cloud-stream-rabbitmq-provider8800</module>
     </modules>
     <packaging>pom</packaging>
 

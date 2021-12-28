@@ -1,0 +1,67 @@
+
+### 注册
+POST http://localhost:8801/unifiedUser/register
+Content-Type: application/json
+
+{
+  "phone":18612767919,
+  "code":123456,
+  "source":1,
+  "password": "234"
+}
+
+
+### 登录
+POST http://localhost:8801/unifiedUser/login
+Content-Type: application/json
+
+{
+  "phone":18612767919,
+  "code":123456,
+  "source":1,
+  "password": 123456
+}
+
+<> 2021-11-19T140144.200.json
+
+
+### 更新用户手机密码
+POST http://localhost:8801/unifiedUser/updateUserPasswordByPhone
+Content-Type: application/json
+
+{
+  "phone":"18612767919",
+  "code":"123456",
+  "password":"123456"
+}
+<> 2021-11-20T102820.200.json
+<> 2021-11-20T102623.200.json
+<> 2021-11-20T102558.200.json
+<> 2021-11-20T102346.200.json
+<> 2021-11-20T101958.200.json
+<> 2021-11-20T101901.200.json
+
+
+### 更新用户手机密码
+POST http://localhost:8801/unifiedUser/updateUserPasswordByPhone
+Content-Type: application/x-www-form-urlencoded
+{
+  phone:18612767919,
+  code:123456,
+  password:123456
+}
+
+<> 2021-11-20T104453.200.json
+<> 2021-11-20T103214.200.json
+<> 2021-11-20T103053.200.json
+<> 2021-11-20T103043.200.json
+<> 2021-11-20T102346.200.json
+<> 2021-11-20T101958.200.json
+<> 2021-11-20T101901.200.json
+
+###
+GET http://localhost:8801/sendMessage
+
+<> 2021-12-25T114342.200.txt
+<> 2021-12-25T114320.200.txt
+<> 2021-12-25T113852.200.txt

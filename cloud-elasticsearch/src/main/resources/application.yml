@@ -1,0 +1,16 @@
+server:
+  port: 8805
+spring:
+  application:
+    name: springcloud-elasticsearch
+  data:
+    # elasticsearch 集成相关信息
+    elasticsearch:
+      client:
+        reactive:
+          password:
+          use-ssl: false
+          username:
+          endpoints:  localhost:9200
+      cluster-name:
+      cluster-nodes:
