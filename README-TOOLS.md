@@ -72,7 +72,7 @@ restTemplate.getForObject("http://ip:port/payment/get/" + id, T.class);
 <dependency>
     <groupId>org.xwb.springcloud</groupId>
     <artifactId>cloud-api-commons</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.SNAPSHOT</version>
 </dependency>
 ```
 > 在线流程图制作工具 processOn

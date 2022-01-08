@@ -1,0 +1,5 @@
+server:
+  port: 8805
+spring:
+  application:
+    name: cloud-elasticsearch

@@ -17,7 +17,7 @@ spring:
                 password: guest
       bindings: #服务的整合处理
         output: #这个名字是一个通道的名字
-          destination: studyExchange #表示要使用的Exchange你名称定义
+          destination: customerExchange #表示要使用的Exchange你名称定义
           content-type: application/json #设置消息类型，本次为json，文本则为"text/plain"
           binder: defaultRabbit #设置要绑定的额消息服务的具体设置
           group: customer8800

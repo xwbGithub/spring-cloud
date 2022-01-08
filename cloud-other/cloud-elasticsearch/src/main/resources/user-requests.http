@@ -1,0 +1,77 @@
+
+###
+POST http://localhost:8805/user/insert
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name":"张三223",
+  "sex":"男",
+  "age":"1"
+}
+###
+POST http://localhost:8805/user/insertBatch
+Content-Type: application/json
+
+{
+  "start":"1",
+  "size":"300"
+}
+
+
+###
+POST http://localhost:8805/user/query
+Content-Type: application/json
+
+{
+
+}
+
+###
+POST http://localhost:8805/user/queryTerm
+Content-Type: application/json
+
+{
+  "start": "5",
+  "size": "3"
+}
+
+###
+POST http://localhost:8805/user/queryTermOrder
+Content-Type: application/json
+
+{
+  "start": "5",
+  "size": "3"
+}
+
+###
+POST http://localhost:8805/user/update
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name":"张三111",
+  "sex":"男",
+  "age":"1"
+}
+###
+POST http://localhost:8805/user/delete
+Content-Type: application/json
+
+{
+  "id": "12",
+  "name":"张三111",
+  "sex":"男",
+  "age":"1"
+}
+###
+POST http://localhost:8805/user/deleteBatch
+Content-Type: application/json
+
+{
+  "id": "12",
+  "name":"张三111",
+  "sex":"男",
+  "age":"1"
+}

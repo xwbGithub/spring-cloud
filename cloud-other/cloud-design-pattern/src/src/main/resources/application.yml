@@ -1,0 +1,6 @@
+# 8004是zookeeper服务器的支付服务提供者端口号
+server:
+  port: 8004
+spring:
+  application:
+    name: cloud-design-pattern

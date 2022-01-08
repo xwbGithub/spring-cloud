@@ -315,7 +315,7 @@ public CommonResult customerBlockHandler() {
 <dependency>
     <groupId>org.xwb.springcloud</groupId>
     <artifactId>cloud-api-commons</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.SNAPSHOT</version>
 </dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
