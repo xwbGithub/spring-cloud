@@ -1,6 +1,8 @@
 package com.cloud.elasticsearch.core.util;
 
 /**
+ * 存储所有需要生成的es数据(类似于索引数据)
+ *
  * @author Administrator
  * @description
  */

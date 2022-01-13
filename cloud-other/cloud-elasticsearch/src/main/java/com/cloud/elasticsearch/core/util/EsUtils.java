@@ -35,7 +35,7 @@ public class EsUtils {
      **/
     public static RestHighLevelClient createEsClient() {
         try {
-            log.info("初始化elasticsearch开始.....");
+            log.info("Utils初始化elasticsearch开始.....");
             return new RestHighLevelClient(
                     RestClient.builder(new HttpHost("localhost", 9200, "http"))
             );
@@ -43,7 +43,7 @@ public class EsUtils {
             log.error("ES创建错误", e);
             throw new RuntimeException("创建es异常:", e);
         } finally {
-            log.info("初始化elasticsearch完成.....");
+            log.info("Utils初始化elasticsearch完成.....");
         }
     }
 }

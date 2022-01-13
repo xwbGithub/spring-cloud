@@ -3,3 +3,8 @@ server:
 spring:
   application:
     name: cloud-elasticsearch
+# ES配置
+es:
+  ip: localhost
+  port: 9200
+  scheme: http

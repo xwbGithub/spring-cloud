@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
   "start":"1",
-  "size":"300"
+  "size":"30000"
 }
 
 
@@ -32,8 +32,8 @@ POST http://localhost:8805/user/queryTerm
 Content-Type: application/json
 
 {
-  "start": "5",
-  "size": "3"
+  "start": "1",
+  "size": "10000"
 }
 
 ###

@@ -30,6 +30,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -70,10 +71,10 @@ public class ElasticsearchUserServiceImpl implements ElasticsearchUserService {
     public Object batchInsert(User o) {
         //创建索引请求对象
 
+        long start = System.currentTimeMillis();
         BulkRequest bulkRequest = new BulkRequest();
         List<User> user = DataDemo.getUser(o.getStart(), o.getSize());
         user.forEach(u -> {
-            log.info("user,{}", u);
             bulkRequest.add(new IndexRequest(EsIndexNames.USER).id(u.getId()).source(JSONUtil.parseObj(u),
                     XContentType.JSON));
         });
@@ -82,8 +83,10 @@ public class ElasticsearchUserServiceImpl implements ElasticsearchUserService {
             BulkResponse bulk = esClient.bulk(bulkRequest, RequestOptions.DEFAULT);
             //操作状态
             BulkItemResponse[] items = bulk.getItems();
-            log.info("插入信息{}", items.toString());
-            return items.toString();
+            log.info("插入信息{}", Arrays.toString(items));
+            long end = System.currentTimeMillis();
+            log.info("创建{},用时{}", o.getStart() * o.getSize(), end - start);
+            return Arrays.toString(items);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -183,6 +186,7 @@ public class ElasticsearchUserServiceImpl implements ElasticsearchUserService {
      */
     @Override
     public Object query(User o) {
+        long start = System.currentTimeMillis();
 
         //查询索引中全部数据
         SearchSourceBuilder query = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
@@ -202,6 +206,9 @@ public class ElasticsearchUserServiceImpl implements ElasticsearchUserService {
             hits.forEach(h -> {
                 log.info("\n查询的信息为{}", h.getSourceAsString());
             });
+
+            long end = System.currentTimeMillis();
+            log.info("用时：{}", end - start);
             return hits;
         } catch (IOException e) {
             e.printStackTrace();
