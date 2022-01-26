@@ -15,6 +15,9 @@ public class User {
     private String name;
     private String sex;
     private Integer age;
+    private String indexName;
+    private String field;
+    private String fieldValue;
     private int start;
     private int size;
 

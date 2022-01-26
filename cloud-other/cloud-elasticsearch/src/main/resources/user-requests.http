@@ -4,8 +4,8 @@ POST http://localhost:8805/user/insert
 Content-Type: application/json
 
 {
-  "id": "2",
-  "name":"张三223",
+  "id": "88889",
+  "name":"lebronJames",
   "sex":"男",
   "age":"1"
 }
@@ -14,6 +14,7 @@ POST http://localhost:8805/user/insertBatch
 Content-Type: application/json
 
 {
+  "field": "james",
   "start":"1",
   "size":"30000"
 }
@@ -33,28 +34,84 @@ Content-Type: application/json
 
 {
   "start": "1",
+  "size": "1000"
+}
+###
+POST http://localhost:8805/user/queryTermCompose
+Content-Type: application/json
+
+{
+  "start": "25000",
+  "size": "10000"
+}
+###
+POST http://localhost:8805/user/queryTermRange
+Content-Type: application/json
+
+{
+  "start": "1",
   "size": "10000"
 }
 
+###
+POST http://localhost:8805/user/queryTermFuzzy
+Content-Type: application/json
+
+{
+  "start": "1",
+  "size": "4000",
+  "field": "name",
+  "fieldValue": "james"
+}
+
+###
+POST http://localhost:8805/user/queryTermHighLight
+Content-Type: application/json
+
+{
+  "start": "1",
+  "size": "6000",
+  "field": "name",
+  "fieldValue": "james"
+}
 ###
 POST http://localhost:8805/user/queryTermOrder
 Content-Type: application/json
 
 {
-  "start": "5",
-  "size": "3"
+  "start": "1",
+  "size": "7000"
 }
 
+
+
 ###
-POST http://localhost:8805/user/update
+POST http://localhost:8805/user/queryAggregationBuilder
 Content-Type: application/json
 
 {
   "id": "1",
   "name":"张三111",
   "sex":"男",
-  "age":"1"
+  "field": "age",
+  "age":"1",
+  "size": "10000",
+  "start": "1"
 }
+
+###
+POST http://localhost:8805/user/queryTermsField
+Content-Type: application/json
+
+{
+  "id": "1",
+  "sex":"男",
+  "field": "age",
+  "size": "10000",
+  "start": "1"
+}
+
+
 ###
 POST http://localhost:8805/user/delete
 Content-Type: application/json

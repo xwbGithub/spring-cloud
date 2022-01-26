@@ -8,4 +8,5 @@ package com.cloud.elasticsearch.core.util;
  */
 public class EsIndexNames {
     public static final String USER = "user";
+    public static final String CITY = "city";
 }
