@@ -17,11 +17,17 @@ public class OrderConsulController {
     private RestTemplate restTemplate;
 
     public static final String INVOKE_URL = "http://consul-PROVIDER-PAYMENT";
+    public static final String INVOKE_URL_TEST = "http://consul-PROVIDER-PAYMENT";
 
     @GetMapping("/consumer/payment/consul")
     public String paymentInfo() {
         String forObject = restTemplate.getForObject(INVOKE_URL + "/payment/consul", String.class);
         return forObject;
+    }
+
+    @GetMapping("/consumer/payment/consul/test")
+    public String paymentInfoTest() {
+        return restTemplate.getForObject(INVOKE_URL_TEST + "/payment/consul", String.class);
     }
 }
 
