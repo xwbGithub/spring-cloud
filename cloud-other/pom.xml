@@ -19,6 +19,8 @@
         <module>cloud-elasticsearch</module>
         <module>cloud-redis6</module>
         <module>cloud-design-pattern</module>
+        <module>cloud-opencv</module>
+        <module>cloud-docker-test</module>
     </modules>
 
     <dependencyManagement>

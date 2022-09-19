@@ -1,0 +1,10 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: cloud-docker-test
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  resources:
+    static-locations: classpath:/templates
