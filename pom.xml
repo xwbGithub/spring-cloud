@@ -127,8 +127,36 @@
                 <version>${lombok.version}</version>
                 <optional>true</optional>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.7.22</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
+    <!--
+    私服地址
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>Releases</name>
+            <url>http://192.168.11.131:8081/repository/my-maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>Snapshot</name>
+            <url>http://192.168.11.131:8081/repository/my-maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    -->
     <build>
         <plugins>
             <plugin>
