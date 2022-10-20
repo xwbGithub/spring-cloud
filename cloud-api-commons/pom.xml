@@ -3,9 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-cloud</artifactId>
         <groupId>org.xwb.springcloud</groupId>
-        <version>1.0.SNAPSHOT</version>
+        <artifactId>spring-cloud-doc</artifactId>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <!-- 使用jar打包，其他子模块依赖引入即可， -->

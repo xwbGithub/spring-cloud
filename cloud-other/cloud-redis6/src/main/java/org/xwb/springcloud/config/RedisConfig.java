@@ -18,6 +18,8 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings({"DuplicatedCode", "unchecked", "UnnecessaryLocalVariable", "rawtypes"})
 @EnableCaching
@@ -62,5 +64,16 @@ public class RedisConfig extends CachingConfigurerSupport {
                 .cacheDefaults(config)
                 .build();
         return cacheManager;
+    }
+
+    public static void main(String[] args) {
+        List<String> list=new ArrayList<String>();
+        list.add("1");
+        list.add("12");
+        list.add("13");
+        StringBuffer sb=new StringBuffer();
+        list.forEach(r->{
+            sb.append(r.toString());
+        });
     }
 }
