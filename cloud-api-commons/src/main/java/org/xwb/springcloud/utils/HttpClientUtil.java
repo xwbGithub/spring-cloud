@@ -1,4 +1,4 @@
-package org.xwb.springcloud.entities;
+package org.xwb.springcloud.utils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

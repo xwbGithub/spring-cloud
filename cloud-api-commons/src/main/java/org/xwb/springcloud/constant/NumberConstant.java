@@ -1,4 +1,4 @@
-package org.xwb.springcloud.entities;
+package org.xwb.springcloud.constant;
 
 /**
  * @author Administrator
