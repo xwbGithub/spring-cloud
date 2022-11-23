@@ -69,3 +69,5 @@ Java文档生成工具，无代码入侵，支持REST、Dubbo等接口定义，�
 ```text
 Json转Java类，该插件可以加快开发进度，使用非常方便，效率高。
 ```
+### 14、中文插件(Chinese ​(Simplified)​ Language Pack / 中文语言包)
+![chinesePlugins](chinesePlugins.png)

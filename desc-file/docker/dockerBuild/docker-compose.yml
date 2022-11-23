@@ -1,0 +1,14 @@
+version: "3.0"
+services:
+  demo: #项目id
+    image: jenkins-demo #指定生成镜像的名称
+    build: #启动服务时，先将build中指定的dockerfile打包成镜像，再运行该镜像
+      context: jenkins-demo #指定上下文目录dockerfile所在目录[相对、绝对路径都可以]
+      dockerfile: Dockerfile #文件名称[在指定的context的目录下指定那个Dockerfile文件名称]
+    container_name: jenkins-demo
+    ports:
+      - "8881:8881"
+    #networks:
+    #  - hello
+    #depends_on:
+    #  - tomcat # 等待tomcat启动之后启动该应用

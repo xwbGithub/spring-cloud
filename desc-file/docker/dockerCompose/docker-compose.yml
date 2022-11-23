@@ -1,0 +1,86 @@
+version: "3.0"
+services:
+  tomcat8080: #服务id
+    container_name: tomcat01 #相当于run  --name
+    image: tomcat:8.0.15-jre7 #镜像版本(没有的话会自动拉取) 相当于run image
+    ports: #完成host与容器的端口映射 相当于run p
+      - "8080:8080" #(防止出错，官方建议用""包起来)
+    volumes: #完成宿主机与容器中目录数据卷的映射(可以挂在多个) 相当于run -v
+      #- /usr/local/software/tomcat/webapps:/usr/local/tomcat/webapps #使用自定义路径映射
+      - tomcatWebapps:/usr/local/tomcat/webapps
+    networks: #代表当前服务使用那个网络桥 相当于run network
+      - hello
+    sysctls:
+      net.core.somaxconn: 1024
+      net.ipv4.tcp_syncookies: 0
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    #sysctls:
+      #- net.core.somaxconn=1024
+      #- net.ipv4.tcp_syncookies=0
+  tomcat8082:
+    container_name: tomcat02
+    image: tomcat:8.0.15-jre7 #镜像版本
+    ports:
+      - "8082:8080"
+    networks: #代表当前服务使用那个网络桥
+      - hello
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+  mysql:
+    container_name: mysql8
+    image: mysql:8.0.29
+    ports:
+      - "3306:3306"
+    volumes:
+      - /url/local/docker/mysql/log:/var/log/mysql
+      - /url/local/docker/mysql/data:/var/lib/mysql
+      - /url/local/docker/mysql/conf:/etc/mysql
+      - /url/local/docker/mysql/mysql-files:/var/lib/mysql-files
+    #environment: #环境变量[此处写得太过敏感，给文件容易被别人知道]
+      #  - MYSQL_ROOT_PASSWORD=root #指定值
+      # - MYSQL_ROOT_PASSWORD: password
+      #  - TZ: Asia/Shanghai
+    #  - MYSQL_ROOT_PASSWORD=root #指定值
+    env_file: #替换environment的配置[直接给该文件、不会泄露密码等信息]
+      - mysql.env #此处为相对路径，也可以写绝对路径[里面的格式key=value，并且支持#的注释]
+  redis:
+    container_name: redis
+    image: redis:7.0.5-alpine
+    ports:
+      - "6379:6379"
+    command: "redis-server --appendonly yes" #run镜像之后，appendonly覆盖容器内的默认命令
+    # 并不是完全等依赖完全启动后才会启动,而是到其他的启动到一定程度后就会启动
+    depends_on: #代表这些容器必须依赖那些容器启动之后才能启动
+      - rabbitmq #此处填写的是id[即当前docker-compose.yml里面定义的所有服务id]
+      - mysql
+    #sysctls: #用来修改容器中系统内部参数 并不是必须 有哪些服务启动收容器内操作系统个参数的限制可能会无法启动必须通过修改容器中参数才能启动
+    #  - net.core.somaxconn=1024
+    #  - net.ipv4.tcp_syncookies=0
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:alpine
+    ports:
+      - 15672:15672
+      - 5672:5672
+    command: "restart always"
+    #ulimits: #用来修改容器中系统内部进程数限制 日后使用时可根据当前容器运行服务要求进行修改
+    #  nproc: 65535
+    #  nofile:
+    #    soft: 20000
+    #    hard: 40000
+#声明数据卷
+volumes: #声明上面服务所使用的自动的卷名
+  tomcatWebapps: #声明指定的卷名 compose会自动创建改卷明，但是会在之前加入项目名
+    external: #使用自定义的卷名
+      false #true确定使用自定义卷名 注意，一旦使用外部自定义卷名，启动服务之前必须手动创建
+networks: #定义服务使用到的网桥
+  hello: #定义上面的服务用到的网桥名称， 默认创建的就是bridge
+    external:
+      true #使用外部指定网桥，注意，网桥必须存在[docker network create -d bridge hello]

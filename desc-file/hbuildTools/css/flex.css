@@ -1,0 +1,119 @@
+/*flex 兼容写法, 兼容性：ios 4+、android 2.3+、winphone8+*/
+.flex {
+	display: -webkit-flex;  /* 新版本语法: Chrome 21+ */
+	display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+	display: -moz-box;      /* 老版本语法: Firefox (buggy) */
+	display: -ms-flexbox;   /* 混合版本语法: IE 10 */  
+	display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+.flex-v {/*垂直布局*/
+	-webkit-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.flex-wrap {/*换行*/
+	-webkit-box-lines: multiple;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.flex-1 {/*占100%*/
+	-webkit-flex: 1;        /* 新版本语法: Chrome 21+ */
+	flex: 1;                /* 新版本语法: Opera 12.1, Firefox 22+ */
+	-webkit-box-flex: 1;    /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+	-moz-box-flex: 1;       /* 老版本语法: Firefox (buggy) */
+	-ms-flex: 1;            /* 混合版本语法: IE 10 */  
+}
+
+.flex-end {/*右对齐*/
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.flex-center {/*垂直水平居中*/
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+	
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-flex-align: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.flex-center-x {/*水平居中*/
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+}
+
+.flex-center-y {/*垂直居中*/
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-flex-align: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.flex-justify {/*两端对齐*/
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	justify-content: space-between;
+}
+
+.flex-around {/*间距相等*/
+	-webkit-justify-content: space-around;
+	-moz-justify-content: space-around;
+	-ms-flex-pack: center;
+	-ms-justify-content: space-around;
+	justify-content: space-around;
+}
+
+.text-ellipsis {/*单行文本显示省略号*/
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.text2-ellipsis {/*2行文本显示省略号*/
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.text10-ellipsis::after{/*兼容写法*/
+	content: "...";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-left: 2em;
+	background: -webkit-linear-gradient(left,transparent,#fff 80%);
+	background: -o-linear-gradient(right,transparent,#fff 80%);
+	background: -moz-linear-gradient(right,transparent,#fff 80%);
+	background: linear-gradient(to right,transparent,#fff 80%);
+}
