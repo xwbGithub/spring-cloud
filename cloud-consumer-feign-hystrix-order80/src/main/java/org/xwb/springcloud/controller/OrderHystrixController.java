@@ -2,10 +2,10 @@ package org.xwb.springcloud.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xwb.springcloud.hystrix.BaseHystrix;
 import org.xwb.springcloud.service.PaymentHystrixService;
@@ -21,6 +21,11 @@ public class OrderHystrixController extends BaseHystrix {
 
     @GetMapping("/consumer/payment/hystrix/ok/{id}")
     public String getPaymentById(@PathVariable("id") Integer id) {
+        return paymentHystrixService.paymentInfo_ok(id);
+    }
+
+    @RequestMapping("/consumer/payment/hystrix/ok/{id}")
+    public String getPaymentByIdPostAndGet(@PathVariable("id") Integer id) {
         return paymentHystrixService.paymentInfo_ok(id);
     }
 
