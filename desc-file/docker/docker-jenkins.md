@@ -1,4 +1,4 @@
-# 一、centos7 安装jenkins(<font color='red'>war</font>)
+# centos7 安装jenkins(war)
 ## 1、准备部署jenkins的tomcat
 提前搭建tomcat[centos搭建tomcat][https://blog.csdn.net/www1056481167/article/details/115396974]
 ```shell
@@ -50,7 +50,7 @@ cat /root/.jenkins/secrets/initialAdminPassword
 >1、jenkins的默认根路径<font color='red'>/data/jenkins_home</font>  
 >2、<font color='red'>/root/.jenkins</font>
 
-# 二、【jenkins】docker安装jenkins
+# 【jenkins】docker安装jenkins
 ## 一、jenkins的安装
 ### 1、创建挂在的目录
 ```shell
@@ -196,9 +196,10 @@ eg：
 cp post-commit.tmpl post-commit
 # 编辑钩子程序
 vim post-commit
+# 将编辑好的curl命令放到最后面
 ```
 ## 2、插件地址更换
-### 1、更换清华园的插件下载地址  
+### 1、更换清华园的插件下载地址
 配置 <font color='red'>插件管理->高级->更新站点</font>
 > https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 
@@ -210,12 +211,11 @@ vim post-commit
 华为云：https://mirrors.huaweicloud.com/jenkins/updates/
 ```
 相同的方法：进入上面的网址，找到update-center.json对应的文件，然后复制该文件的全路径更换即可
-```html
-https://mirrors.aliyun.com/jenkins/updates/update-center.json
-https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
-https://mirrors.huaweicloud.com/jenkins/updates/update-center.json
-```
-<font color='red'>然后重启即可</font>
+>https://mirrors.aliyun.com/jenkins/updates/update-center.json
+>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+>https://mirrors.huaweicloud.com/jenkins/updates/update-center.json
+
+然后重启即可
 二、直接更换默认的插件下载地址  
 <font color='red'>特别提醒，启动war包后，不要访问浏览器，然后启动后会自动生成jenkins的工作目录/root/.jenkins,
 然后进入updates目录下，有一个默认的default.json,在当前目录下下载清华园的插件json文件，然后重启war包，访问浏览器继续其他操作</font>
@@ -247,38 +247,38 @@ mv  update-center.json default.json
 mvn clean install package ......  
 ### 1、没有该插件的jenkins  
 
-![noMavenPlugin](pluginImg/noMavenPlugin.png)  
+![noMavenPlugin](pluginImg/noMavenPlugin.png)
 ### 2、插件查找该插件安装
-![selectMavenPlugin](pluginImg/selectMavenPlugin.png)  
+![selectMavenPlugin](pluginImg/selectMavenPlugin.png)
 ### 3、插件安装好后列表显示
-![haveMavenPlugin](pluginImg/haveMavenPlugin.png)  
+![haveMavenPlugin](pluginImg/haveMavenPlugin.png)
 ### 4、配置好后项目中的使用
-#### 1、配置仓库地址  
-![mvnCodeGitAddress](pluginImg/mvnCodeGitAddress.png)  
+#### 1、配置仓库地址
+![mvnCodeGitAddress](pluginImg/mvnCodeGitAddress.png)
 #### 2、构建之前可以做的操作
-![buildAfterOperation](pluginImg/buildBeforeOperation.png) 
+![buildAfterOperation](pluginImg/buildBeforeOperation.png)
 #### 3、构建操作
 <font color='red'>指定要构建的pom.xml文件</font>
-![buildProject](pluginImg/buildProject.png)  
-#### 4、构建之后的操作   
-![buildAfterOperation](pluginImg/buildAfterOperation.png) 
+![buildProject](pluginImg/buildProject.png)
+#### 4、构建之后的操作
+![buildAfterOperation](pluginImg/buildAfterOperation.png)
 
 ## 三、Publish Over SSH(ssh插件)
 ### 1、在插件库中查找安装
 ![searchSshPlugin](pluginImg/searchSshPlugins.png)
 <font color='red'>用于连接ssh服务器，然后再该服务器上做一些操作。
 例如连接服务器，部署服务到该服务器上</font>
-### 2、 <font color='red'>Manager Jenkins->系统配置->Publish over SSH</font>  
+### 2、 <font color='red'>Manager Jenkins->系统配置->Publish over SSH</font>
 
-![sshSettingsAddress](pluginImg/sshSettingsAddress.png)  
+![sshSettingsAddress](pluginImg/sshSettingsAddress.png)
 ### 3、全局配置
 <font color='red'>添加服务器列表</font>
 
 ![jenkinsSshTest](pluginImg/sshGlobalSettings.png)
 `注意`
 > 添加完点击<font color='red'>Test Configuration</font>确保服务器配置能连接成功
-### 4、项目中如何使用  
-> 安装好插件后,上传文件到其他服务器上要选择<font color='red'>Send files or execute commands over SSH</font>  
+### 4、项目中如何使用
+> 安装好插件后,上传文件到其他服务器上要选择<font color='red'>Send files or execute commands over SSH</font>
 
 ![postSendFile](pluginImg/postSendFile.png)
 
@@ -287,7 +287,7 @@ mvn clean install package ......
 `注意`
 
 
-#### 4.1、<font color='red'>SSH Server Name</font>  
+#### 4.1、<font color='red'>SSH Server Name</font>
 >表示要连接那台服务器上传文件(在全局配置中选择已经添加的服务器列表,此处可以配置多个服务器，集群中常见较多)
 
 #### 4.2、<font color='red'>Source files</font>
@@ -389,6 +389,6 @@ eg:    nohup java -jar jenkins-demo.jar >mylog.log 2>&1 &
 
 ## 四、build authorization token root(触发钩子免登录插件)
 + 说明  
-<font color='red'>正常的触发远程脚本构建,在登录的状态下请求token的url是会触发的，但是如果登录失效，请求则不同，此时就需要该插件</font>
-![buildAuthorizationTokenRoot](pluginImg/buildAuthorizationTokenRoot.png)
+  <font color='red'>正常的触发远程脚本构建,在登录的状态下请求token的url是会触发的，但是如果登录失效，请求则不同，此时就需要该插件</font>
+  ![buildAuthorizationTokenRoot](pluginImg/buildAuthorizationTokenRoot.png)
 
