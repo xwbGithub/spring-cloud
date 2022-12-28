@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FeignConfig {
+    //设置日志级别
     @Bean
     public Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
