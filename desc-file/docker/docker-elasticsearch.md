@@ -7,6 +7,7 @@ sudo mkdir -p /usr/local/docker/elasticsearch/config
 sudo mkdir -p /usr/local/docker/elasticsearch/data
 sudo mkdir -p /usr/local/docker/elasticsearch/plugins
 sudo mkdir -p /usr/local/docker/elasticsearch/logs
+#赋予权限
 chmod -R 777 /usr/local/docker/elasticsearch
 ```
 [添加ik分词器](#ik)
@@ -74,12 +75,11 @@ xpack.security.http.ssl.enabled: false
 ```
 ### 4、下载es
 ```shell
-#1、下载es
 docker pull elasticsearch:8.4.3
 ```
 ### 5、启动
 ```shell
-# 启动方式1
+# 启动方式1(普通启动，用于启动后复制es里面的配置文件插件等文件用于挂载数据卷)
 docker run -d --name es -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS="-Xms256m -Xmx512m" -e "discovery.type=single-node" elasticsearch:8.4.3
 # 启动方式2(指定数据卷目录和配置文件等信息)
 sudo docker run --name es -p 9200:9200  -p 9300:9300 \
