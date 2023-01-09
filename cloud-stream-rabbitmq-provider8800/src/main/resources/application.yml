@@ -1,5 +1,5 @@
 server:
-  port: 8800
+  port: 8800 #端口号
 spring:
   application:
     name: cloud-stream-provider8800

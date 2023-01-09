@@ -14,11 +14,15 @@ import org.springframework.stereotype.Component;
  * @author Administrator
  */
 @Component
-@EnableBinding(Sink.class)
+@EnableBinding(Sink.class) //启用监听
 @Slf4j
 public class ReceiveMessageListenerController {
+    /**
+     * 端口号
+     */
     @Value("${server.port}")
     private String serverPort;
+
     @StreamListener(Sink.INPUT)
     public void receiveMessage(@Payload String in, @Header(AmqpHeaders.CONSUMER_QUEUE) String queue) {
         log.info("消费者{}\n收到的消息为-->：{}\nreceived from queue {}", serverPort, in, queue);

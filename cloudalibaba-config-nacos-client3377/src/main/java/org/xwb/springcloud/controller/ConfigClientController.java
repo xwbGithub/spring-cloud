@@ -22,4 +22,9 @@ public class ConfigClientController {
     public String getConfigInfo() {
         return "serverPort: " + serverPort + "\t\n\n configInfo: " + configInfo;
     }
+
+    @GetMapping("configInfo1")
+    public String getConfigInfo1() {
+        return "serverPort1: " + serverPort + "\t\n\n configInfo1: " + configInfo;
+    }
 }

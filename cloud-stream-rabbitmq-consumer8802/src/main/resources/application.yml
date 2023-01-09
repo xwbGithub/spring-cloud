@@ -2,7 +2,7 @@ server:
   port: 8802
 spring:
   application:
-    name: cloud-stream-customer #服务名
+    name: cloud-stream-customer #服务名(消费方)
   cloud:
     stream:
       binders: #在此处配合要绑定的rabbitmq的服务信息
