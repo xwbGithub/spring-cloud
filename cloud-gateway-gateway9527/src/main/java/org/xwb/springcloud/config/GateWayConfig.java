@@ -10,8 +10,8 @@ public class GateWayConfig {
     /**
      * 配置了一个Id为route-name的路由规则，方访问地址http://localhost:9527/guonei是会自动转发到地址http://news.baidu.com/guonei
      *
-     * @param routeLocatorBuilder
-     * @return
+     * @param routeLocatorBuilder 获取到的路由信息
+     * @return 返回路由信息
      */
     @Bean
     public RouteLocator customerRouteLocator(RouteLocatorBuilder routeLocatorBuilder) {

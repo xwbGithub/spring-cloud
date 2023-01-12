@@ -1,5 +1,5 @@
 server:
-  port: 9527
+  port: 9527 #端口号为9527
 spring:
   application:
     name: cloud-gateway9527 #服务名
