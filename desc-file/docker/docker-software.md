@@ -1,4 +1,4 @@
-## centos7安装jdk
+## 一、centos7安装jdk
 ### 1、创建文件夹
 ```shell
 mkdir -vp /usr/local/software/jdk
@@ -40,7 +40,7 @@ source /etc/profile
 java -version
 ```
 ![java-version](commonImg/java-version.png)
-## 【dockerui】dockerUI 可视化界面工具安装
+## 二、【dockerui】dockerUI 可视化界面工具安装
 ```shell
 #拉去镜像
 docker pull abh1nav/dockerui
@@ -62,7 +62,7 @@ docker run -d \
 > http://ip:9000/
 
 ![dockerUI](commonImg/dockerUI.png)
-## 【dockerUI portainer】docker安装portainer(UI管理界面)
+## 三、【dockerUI portainer】docker安装portainer(UI管理界面)
 ```shell
 #拉去镜像
 docker pull portainer/portainer
