@@ -18,7 +18,9 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <modules>
+        <!--   es模块     -->
         <module>cloud-elasticsearch</module>
+        <!--        redis模块 -->
         <module>cloud-redis6</module>
         <module>cloud-design-pattern</module>
         <module>cloud-opencv</module>

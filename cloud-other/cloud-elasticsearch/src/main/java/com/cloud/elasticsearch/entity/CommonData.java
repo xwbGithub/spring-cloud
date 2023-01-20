@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Administrator
- * @description
+ * @description 公共数据类
  */
 @Data
 @Slf4j

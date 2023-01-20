@@ -25,6 +25,12 @@ public class ElasticsearchController {
         return service.insert(o);
     }
 
+    @RequestMapping(value = "/insert")
+    @ResponseBody
+    public Object getRequestList(@RequestBody Object o) {
+        return service.insert(o);
+    }
+
     @PostMapping(value = "/query")
     @ResponseBody
     public Object query(@RequestBody Object o) {
