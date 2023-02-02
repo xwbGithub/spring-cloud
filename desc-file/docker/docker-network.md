@@ -39,29 +39,30 @@
 7、容器拥有独立、隔离的网络栈；让容器和宿主机以外的世界通过NAT建立通信<br>
 
 ![bridge](network/bridge.png)
-## 1、查看网络信息
+## 二、网络的使用
+### 1、查看网络信息
 ```shell
 docker network ls
 ```
 ![bridge-ls](network/bridge-ls.png)
-## 2、创建一个网桥
+### 2、创建一个网桥
 ```shell
 docker network create -d bridge 网桥名称
 ```
-## 3、删除一个网桥
+### 3、删除一个网桥
 ```shell
 docker network rm 网桥名称
 ```
-## 4、容器之间使用网络通信
-### 1、查看当前网络配置
+### 4、容器之间使用网络通信
+#### 1、查看当前网络配置
 ```shell
 docker network ls
 ```
-### 2、创建网桥网络
+#### 2、创建网桥网络
 ```shell
 docker network create -d bridge 网桥名称
 ```
-### 3、<font color='red'>使用网桥</font>
+#### 3、<font color='red'>使用网桥</font>
 ```shell
 docker network create -d bridge tomcatBridge
 ```
