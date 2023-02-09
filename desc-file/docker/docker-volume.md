@@ -1,5 +1,5 @@
-# docker volume数据卷
-## 一、特点
+# <font color='red'>docker volume数据卷</font>
+## 一、数据卷的特点
 >1、数据卷可以在容器之间共享和重用<br> 
 2、<font color='red'>对数据卷的修改会立即影响到对应容器</font><br>
 3、对`数据卷`的更改，不会影响镜像<br>
@@ -18,7 +18,7 @@ docker run -d -p -v 卷名(随便起的自动创建):容器内部路径
 ```shell
 docker volume ls
 ```
-### 2、数据卷的细节(显示该卷存在的位置等详细信息)
+### 2、数据卷的细节(<font color='red'>显示该卷存在的位置等详细信息</font>)
 ```shell
 docker volume inspect 卷名
 ```
@@ -30,7 +30,7 @@ docker volume create 卷名
 ```shell
 docker volume rm 卷名
 ```
-### 5、删除没有使用的卷(谨慎操作)
+### 5、删除没有使用的卷(<font color='red'>谨慎操作</font>)
 ```shell
 docker volume prune
 ```
