@@ -1,4 +1,4 @@
-# centos7 安装jenkins(war)
+# 一、centos7 安装jenkins(<font color='red'>war</font>)
 ## 1、准备部署jenkins的tomcat
 提前搭建tomcat[centos搭建tomcat][https://blog.csdn.net/www1056481167/article/details/115396974]
 ```shell
@@ -50,7 +50,7 @@ cat /root/.jenkins/secrets/initialAdminPassword
 >1、jenkins的默认根路径<font color='red'>/data/jenkins_home</font>  
 >2、<font color='red'>/root/.jenkins</font>
 
-# 【jenkins】docker安装jenkins
+# 二、【jenkins】docker安装jenkins
 ## 一、jenkins的安装
 ### 1、创建挂在的目录
 ```shell
@@ -196,7 +196,6 @@ eg：
 cp post-commit.tmpl post-commit
 # 编辑钩子程序
 vim post-commit
-# 将编辑好的curl命令放到最后面
 ```
 ## 2、插件地址更换
 ### 1、更换清华园的插件下载地址  
@@ -211,11 +210,12 @@ vim post-commit
 华为云：https://mirrors.huaweicloud.com/jenkins/updates/
 ```
 相同的方法：进入上面的网址，找到update-center.json对应的文件，然后复制该文件的全路径更换即可
->https://mirrors.aliyun.com/jenkins/updates/update-center.json
->https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
->https://mirrors.huaweicloud.com/jenkins/updates/update-center.json
-
-然后重启即可
+```html
+https://mirrors.aliyun.com/jenkins/updates/update-center.json
+https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+https://mirrors.huaweicloud.com/jenkins/updates/update-center.json
+```
+<font color='red'>然后重启即可</font>
 二、直接更换默认的插件下载地址  
 <font color='red'>特别提醒，启动war包后，不要访问浏览器，然后启动后会自动生成jenkins的工作目录/root/.jenkins,
 然后进入updates目录下，有一个默认的default.json,在当前目录下下载清华园的插件json文件，然后重启war包，访问浏览器继续其他操作</font>
